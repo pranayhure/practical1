@@ -1,0 +1,36 @@
+Q. 2)Use the iris dataset. Write a Python program to view some basic statistical details like percentile, 
+Mean, std etc. Of the species of ‘Iris-setosa’, ‘Iris-versicolor’ and ‘Iris-virginica’. Apply logistic regression 
+On the dataset to identify different species (setosa, versicolor, verginica) of Iris flowers given just 4 
+Features: sepal and petal lengths and widths.. Find the accuracy of the model. 
+Ans:
+
+
+Import pandas as pd
+From sklearn.datasets import load_iris
+From sklearn.linear_model import LogisticRegression
+From sklearn.model_selection import train_test_split
+From sklearn.metrics import accuracy_score
+
+Iris = load_iris()
+
+Df = pd.DataFrame(iris.data, columns=iris.feature_names)
+Df[‘target’] = iris.target
+
+Print(“Statistical details of Iris-setosa:”)
+Print(df[df[‘target’]==0].describe())
+Print(“Statistical details of Iris-versicolor:”)
+Print(df[df[‘target’]==1].describe())
+Print(“Statistical details of Iris-virginica:”)
+Print(df[df[‘target’]==2].describe())
+
+X = df.iloc[:,:-1]
+Y = df.iloc[:, -1]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+Logreg = LogisticRegression()
+Logreg.fit(X_train, y_train)
+
+Y_pred = logreg.predict(X_test)
+
+Accuracy = accuracy_score(y_test, y_pred)
+Print(“Accuracy of the logistic regression model:”, accuracy)
