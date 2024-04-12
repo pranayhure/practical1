@@ -29,4 +29,4 @@ For min_sup in min_sup_values:
  Print(“Frequent Itemsets:”)
  Print(frequent_itemsets)
  Print(“Association Rules:”)
- Print(rules
+ Print(rules)
